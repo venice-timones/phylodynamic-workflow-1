@@ -103,3 +103,12 @@ augur filter \
     --output-metadata align/$date.barmm.metadata.sanitized.clean.aligned.tsv \
     --output-sequences align/$date.barmm.sequences.sanitized.clean.aligned.fasta
 
+##### CREATE DATE FILES
+Rscript ./scripts/date.R $date.bdmm
+Rscript ./scripts/date.R $date.davao
+Rscript ./scripts/date.R $date.zamboanga
+Rscript ./scripts/date.R $date.northmindanao
+Rscript ./scripts/date.R $date.soccsksargen
+Rscript ./scripts/date.R $date.caraga
+Rscript ./scripts/date.R $date.barmm
+
