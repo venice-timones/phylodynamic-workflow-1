@@ -2,7 +2,7 @@
 args = commandArgs(trailingOnly = TRUE)
 
 ##Load directories
-setwd("/Users/ijborda/Augur/ncov-master")
+setwd("/Users/ijborda/GitHub/gisaid-preprocessing/ncov-master")
 wd = getwd()
 id = paste0(wd,"/output/")   
 od = paste0(wd,"/output/")

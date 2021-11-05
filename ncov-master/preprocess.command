@@ -5,7 +5,8 @@ declare -r date=211102
 
 ##### PRELIMINARIES
 #Initialize environment
-cd Augur
+cd GitHub
+cd gisaid-preprocessing
 cd ncov-master
 source activate nextstrain
 #Concatenate batches to make one set of file for Philippine samples
