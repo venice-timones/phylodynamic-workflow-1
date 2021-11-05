@@ -1,7 +1,7 @@
 
 args = commandArgs(trailingOnly = TRUE)
 
-setwd("/Users/ijborda/Augur/ncov-master")
+setwd("/Users/ijborda/GitHub/gisaid-preprocessing/ncov-master")
 wd = getwd()
 id = paste0(wd,"/intermediate/")   
 od = paste0(wd,"/intermediate/")
