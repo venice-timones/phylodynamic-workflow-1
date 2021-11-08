@@ -67,7 +67,8 @@ lin <- metadata %>% left_join(metadata %>% group_by(division) %>% summarise(N=n(
   facet_wrap(~Label, ncol=1) + 
   theme(axis.title.y = element_text(margin = margin(t = 0, r = 10, b = 0, l = 0)),
         axis.title.x = element_text(margin = margin(t = 10, r = 0, b = 0, l = 0))) +
-  guides(fill=guide_legend(title="Pangolin Lineage")) 
+  guides(fill=guide_legend(title="Pangolin Lineage", ncol=1)) + 
+  theme(legend.key.size = unit(.5, 'cm'))
 lin
 
 #Save plots
