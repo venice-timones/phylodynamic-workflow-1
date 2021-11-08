@@ -19,7 +19,7 @@ augur filter \
     --max-date 2021-12-31 \
     --exclude-ambiguous-dates-by any \
     --subsample-max-sequences $random \
-    --subsample-seed 100
+    --subsample-seed 100 \
     --output-strains intermediate/$date.ncrbdmm.filter.txt
 augur filter \
     --metadata intermediate/$date.ph.metadata.sanitized.tsv \
@@ -38,6 +38,7 @@ cat intermediate/$date.ncrbdmm.metadata.sanitized.clean.tsv \
 
 ##### GRAPHS
 Rscript ./scripts/graph.R $date.bdmm
+Rscript ./scripts/info.R $date.bdmm
 
 
 
