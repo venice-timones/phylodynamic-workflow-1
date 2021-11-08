@@ -3,6 +3,7 @@ args = commandArgs(trailingOnly = TRUE)
 
 ##Load libraries
 library("dplyr")
+library("lubridate")
 
 ##Load directories
 setwd("/Users/ijborda/GitHub/gisaid-preprocessing/ncov-master")
@@ -36,20 +37,25 @@ sampdate <- sampdate.transform %>%
   ) %>%
   arrange(division)
 
-##Date Range
-sampdate <- transform(sampdate, range = youngest - oldest)
+##Date range and decimals
+sampdate <- transform(sampdate, 
+                      range = youngest - oldest,
+                      oldest.decimal = decimal_date(oldest),
+                      youngest.decimal = decimal_date(youngest))
 
 ##Make data frame
-info <- data.frame(count[1], count[2], sampdate[2], sampdate[3], sampdate[4])
-colnames(info) <- c("Region","Clean Samples","Oldest Sample", "Youngest Samples", "Date Range")
+info <- data.frame(count[1], count[2], sampdate[2], sampdate[3], sampdate[4], sampdate[5], sampdate[6])
+colnames(info) <- c("Region","Clean Samples","Oldest Sample", "Youngest Samples", "Date Range", "Oldest Sample (Decimal)", "Youngest Samples (Decimal)")
 
 #Add Overall
 overall <- data.frame("BDMM", 
                       sum(info$`Clean Samples`), 
                       min(info$`Oldest Sample`), 
                       max(info$`Youngest Samples`), 
-                      max(info$`Youngest Samples`)-min(info$`Oldest Sample`))
-colnames(overall) <- c("Region","Clean Samples","Oldest Sample", "Youngest Samples", "Date Range")
+                      max(info$`Youngest Samples`)-min(info$`Oldest Sample`),
+                      min(info$`Oldest Sample (Decimal)`),
+                      max(info$`Youngest Samples (Decimal)`))
+colnames(overall) <- c("Region","Clean Samples", "Oldest Sample", "Youngest Samples", "Date Range", "Oldest Sample (Decimal)", "Youngest Samples (Decimal)")
 info.final <- rbind(info, overall)
 
 ##Save 
