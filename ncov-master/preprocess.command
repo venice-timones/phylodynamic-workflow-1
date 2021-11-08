@@ -292,9 +292,6 @@ cat intermediate/$date.davao.metadata.sanitized.tsv \
     <(tail +2 intermediate/$date.zamboanga.metadata.sanitized.tsv) \
     > intermediate/$date.mindanao.metadata.sanitized.tsv
 
-##### GRAPHS
-Rscript ./scripts/graph.R $date.mindanao
-
 ##### COUNTS
 Rscript ./scripts/count.R $date.mindanao
 

@@ -37,7 +37,7 @@ cat intermediate/$date.ncrbdmm.metadata.sanitized.clean.tsv \
     > output/$date.bdmm.metadata.sanitized.clean.tsv
 
 ##### GRAPHS
-Rscript ./scripts/graph.bdmm.R $date.bdmm
+Rscript ./scripts/graph.R $date.bdmm
 
 
 

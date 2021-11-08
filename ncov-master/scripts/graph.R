@@ -12,7 +12,7 @@ require(pacman)
 p_load(EpiCurve,dplyr,tidyr,pacman, ggplot2,ggthemes,broom,stringr,ggpubr,scales,lubridate)
 
 ##Required input
-filename <-  args[1] #"211102.mindanao"  
+filename <-  args[1] #"211102.bdmm"  
 
 #Read data
 metadata <- read.delim(file = (paste0(id,filename,".metadata.sanitized.clean.tsv")) , sep = '\t', header = TRUE)
@@ -22,6 +22,7 @@ metadata$date <- as.Date(metadata$date, format="%Y-%m-%d")
 metadata$division <- ifelse(grepl("Davao Region", metadata$division),'Davao', metadata$division)
 metadata$division <- ifelse(grepl("Bangsamoro Autonomous Region in Muslim Mindanao", metadata$division),'BARMM', metadata$division)
 metadata$division <- ifelse(grepl("Region IX", metadata$division),'Zamboanga', metadata$division)
+metadata$division <- ifelse(grepl("National Capital Region", metadata$division),'NCR', metadata$division)
 
 #Plot date
 date <- metadata %>% left_join(metadata %>% group_by(division) %>% summarise(N=n()))%>%
@@ -51,7 +52,8 @@ sex <- metadata %>% left_join(metadata %>% group_by(division) %>% summarise(N=n(
   facet_wrap(~Label, ncol=1) + 
   theme(axis.title.y = element_text(margin = margin(t = 0, r = 10, b = 0, l = 0)),
         axis.title.x = element_text(margin = margin(t = 10, r = 0, b = 0, l = 0))) +
-  guides(fill=guide_legend(title="Gender")) 
+  guides(fill=guide_legend(title="Gender")) +
+  theme(legend.key.size = unit(.5, 'cm'))
 sex
 
 #Plot by pangolin lineage
