@@ -96,7 +96,8 @@ voc <- metadata %>% left_join(metadata %>% group_by(division) %>% summarise(N=n(
   theme(axis.title.y = element_text(margin = margin(t = 0, r = 10, b = 0, l = 0)),
         axis.title.x = element_text(margin = margin(t = 10, r = 0, b = 0, l = 0))) +
   guides(fill=guide_legend(title="Variant", ncol=1)) + 
-  theme(legend.key.size = unit(.5, 'cm'))
+  theme(legend.key.size = unit(.5, 'cm')) +
+  scale_fill_brewer(palette = "Dark2")
 voc
 
 #Save plots
