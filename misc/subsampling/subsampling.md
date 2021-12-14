@@ -1,13 +1,14 @@
 # subsampling
+Subsamples sequence data and its metadata based on predefined parameteres. 
+
 ## Input
 
 * Metadata (.tsv) and sequences (.fasta)
 
 ## Output
 
-* subsample.txt -> list of included sequences
-* subsample.fasta -> resulting sequences
-* subsample.tsv -> resulting metadata
+* subsample.result.fasta -> resulting sequences
+* subsample.result.tsv -> resulting metadata
 
 ## Parameters
 
