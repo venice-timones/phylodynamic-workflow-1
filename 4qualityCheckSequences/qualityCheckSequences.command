@@ -1,7 +1,7 @@
 #! /bin/bash
 
 # Preliminaries
-cd GitHub/gisaid-preprocessing/3qualityCheckSequences
+cd GitHub/gisaid-preprocessing/4qualityCheckSequences
 source activate nextstrain
 
 # Declare sequences and metadata names

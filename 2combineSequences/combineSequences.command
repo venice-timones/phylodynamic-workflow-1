@@ -1,7 +1,7 @@
 #! /bin/bash
 
 # Preliminaries
-cd GitHub/gisaid-preprocessing/1combineSequences
+cd GitHub/gisaid-preprocessing/2combineSequences
 source activate nextstrain
 
 # Concatenate sequences and metadata to make one set for Philippine samples

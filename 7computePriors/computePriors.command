@@ -1,7 +1,7 @@
 #! /bin/bash
 
 # Preliminaries
-cd GitHub/gisaid-preprocessing/5computePriors
+cd GitHub/gisaid-preprocessing/7computePriors
 source activate nextstrain
 
 # Calculate info

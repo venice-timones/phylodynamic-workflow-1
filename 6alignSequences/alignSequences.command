@@ -1,7 +1,7 @@
 #! /bin/bash
 
 # Preliminaries
-cd GitHub/gisaid-preprocessing/4alignSequences
+cd GitHub/gisaid-preprocessing/6alignSequences
 source activate nextstrain
 
 # Download latest reference
@@ -14,6 +14,6 @@ augur align \
     --remove-reference \
     --output output/align.fasta
 
-# Remove other results from nextclade
+# Remove intermediate files
 rm output/*.log
 rm output/*.csv
