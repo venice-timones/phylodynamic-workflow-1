@@ -1,7 +1,7 @@
 #! /bin/bash
 
 # Preliminaries
-cd GitHub/gisaid-preprocessing/10bdmmSubsampling
+cd GitHub/gisaid-preprocessing/10-bdmmSubsampling
 source activate nextstrain
 
 # Subsample for bdmm data

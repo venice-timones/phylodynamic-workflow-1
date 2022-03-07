@@ -1,7 +1,7 @@
 #! /bin/bash
 
 # Preliminaries
-cd GitHub/gisaid-preprocessing/11bdskyProcess
+cd GitHub/gisaid-preprocessing/11-bdskyProcess
 source activate nextstrain
 
 # Create datefiles and plots

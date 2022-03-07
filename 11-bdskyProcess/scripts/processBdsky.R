@@ -15,6 +15,14 @@ library(imputeTS)
 
 
 #### Read Input
+# Log files
+barmm.log <- readLogfile(file = "input/barmm.log", burnin=0.1)
+caraga.log <- readLogfile(file = "input/caraga.log", burnin=0.1)
+davao.log <- readLogfile(file = "input/davao.log", burnin=0.1)
+northmindanao.log <- readLogfile(file = "input/northmindanao.log", burnin=0.1)
+soccsksargen.log <- readLogfile(file = "input/soccsksargen.log", burnin=0.1)
+zamboanga.log <- readLogfile(file = "input/zamboanga.log", burnin=0.1)
+
 # DOH data drop
 doh1 <- read.delim(file = "scripts/doh-data-drop/220303.DOH.batch0.csv", sep = ',', header = TRUE)
 doh2 <- read.delim(file = "scripts/doh-data-drop/220303.DOH.batch1.csv", sep = ',', header = TRUE)
@@ -23,20 +31,15 @@ doh4 <- read.delim(file = "scripts/doh-data-drop/220303.DOH.batch3.csv", sep = '
 doh <- rbind(doh1, doh2, doh3, doh4)
 doh$DateRepConf <- as.Date(doh$DateRepConf, format="%Y-%m-%d")
 
+# Sitrep data
+davao.sitrep <- read.delim(file = "scripts/sit-rep/davaoSitrep.csv", sep = ',', header = TRUE)
+        
 # Metadata file for sampling times
 metadata <- read.delim(file = "input/metadata.tsv" , sep = '\t', header = TRUE)
 metadata$data <- as.Date(metadata$date, format="%Y-%m-%d")
 
 # Info file for latest sampling dates of each region
 info <- read.delim(file = "input/info.csv", sep = ',', header = TRUE)
-
-# Log files
-barmm.log <- readLogfile(file = "input/barmm.log", burnin=0.1)
-caraga.log <- readLogfile(file = "input/caraga.log", burnin=0.1)
-davao.log <- readLogfile(file = "input/davao.log", burnin=0.1)
-northmindanao.log <- readLogfile(file = "input/northmindanao.log", burnin=0.1)
-soccsksargen.log <- readLogfile(file = "input/soccsksargen.log", burnin=0.1)
-zamboanga.log <- readLogfile(file = "input/zamboanga.log", burnin=0.1)
 
 
 ### Plot limits
@@ -49,6 +52,7 @@ source("scripts/plotRe.R")
 source("scripts/plotReCases.R")
 source("scripts/plotReSampling.R")
 source("scripts/saveReFiles.R")
+source("scripts/plotReSitrep.R")
 
 
 #### Define inputs for plottings
@@ -96,6 +100,14 @@ final.re.sampling <- plotReSampling(append(barmmParams, list(subset(metadata, di
                      plot_layout(ncol = 2, nrow = 3)
 ggsave(plot = final.re.sampling,
        filename = "output/re.sampling.png",
+       width = 12, height = 10, units = "in", dpi = 300)
+
+
+#### Plot Re vs. Sitrep data for each region and save
+final.re.sitrep <- plotReSitrep(append(davaoParams, list(davao.sitrep))) + 
+        plot_layout(ncol = 1, nrow = 1)
+ggsave(plot = final.re.sitrep,
+       filename = "output/re.sitrep.png",
        width = 12, height = 10, units = "in", dpi = 300)
 
 
