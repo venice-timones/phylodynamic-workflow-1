@@ -1,4 +1,5 @@
 calcRe <- function(lf, region.title, info) {
+  
   # Extract the HPDs of Re
   Re_sky    <- getSkylineSubset(lf, "reproductiveNumber")
   Re_hpd    <- getMatrixHPD(Re_sky)

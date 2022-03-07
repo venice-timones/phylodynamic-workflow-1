@@ -1,4 +1,11 @@
-plotRe <- function(lf, region.title, info, minimum, maximum) {
+plotRe <- function(parameters) {
+  
+  # Parse inputs
+  lf <- do.call(rbind.data.frame, parameters[1])
+  region.title <- unlist(parameters[2])
+  info <- do.call(rbind.data.frame, parameters[3])
+  minimum <- unlist(parameters[4])
+  maximum <- unlist(parameters[5])
   
   # Calculate Re
   source("scripts/calcRe.R")

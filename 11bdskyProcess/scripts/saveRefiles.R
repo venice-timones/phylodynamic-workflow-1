@@ -1,5 +1,13 @@
-#### Save datafiles
-saveRefiles <- function(lf, region.title, info, minimum, maximum, region.doh) {
+#### Save Re datafiles
+saveRefiles <- function(parameters) {
+  
+  # Parse inputs
+  lf <- do.call(rbind.data.frame, parameters[1])
+  region.title <- unlist(parameters[2])
+  info <- do.call(rbind.data.frame, parameters[3])
+  minimum <- unlist(parameters[4])
+  maximum <- unlist(parameters[5])
+  region.doh <- do.call(rbind.data.frame, parameters[6])
   
   # Calculate Re and interpolate
   source("scripts/calcRe.R")

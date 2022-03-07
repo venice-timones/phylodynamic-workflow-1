@@ -2,6 +2,7 @@
 **/**/*.tsv
 **/**/*.csv
 **/**/*.log
+**/**/*.png
 **/**/*.RData
 **/**/*.DS_Store
 **/**/*.Rhistory
