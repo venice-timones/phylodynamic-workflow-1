@@ -33,6 +33,7 @@ doh$DateRepConf <- as.Date(doh$DateRepConf, format="%Y-%m-%d")
 
 # Sitrep data
 davao.sitrep <- read.delim(file = "scripts/sit-rep/davaoSitrep.csv", sep = ',', header = TRUE)
+zamboanga.sitrep <- read.delim(file = "scripts/sit-rep/zamboangaSitrep.csv", sep = ',', header = TRUE)
         
 # Metadata file for sampling times
 metadata <- read.delim(file = "input/metadata.tsv" , sep = '\t', header = TRUE)
@@ -74,7 +75,7 @@ final.re <- plotRe(barmmParams) +
             plot_layout(ncol = 2, nrow = 3)
 ggsave(plot = final.re,
        filename = "output/re.png",
-       width = 12, height = 10, units = "in", dpi = 300)
+       width = 15, height = 10, units = "in", dpi = 300)
 
 
 #### Plot Re vs reported cases for each region and save
@@ -87,7 +88,7 @@ final.re.cases <- plotReCases(append(barmmParams, list(subset(doh, RegionRes == 
                   plot_layout(ncol = 2, nrow = 3)
 ggsave(plot = final.re.cases,
        filename = "output/re.cases.png",
-       width = 12, height = 10, units = "in", dpi = 300)
+       width = 15, height = 10, units = "in", dpi = 300)
 
 
 #### Plot Re vs. Sampling Dates for each region and save
@@ -100,15 +101,16 @@ final.re.sampling <- plotReSampling(append(barmmParams, list(subset(metadata, di
                      plot_layout(ncol = 2, nrow = 3)
 ggsave(plot = final.re.sampling,
        filename = "output/re.sampling.png",
-       width = 12, height = 10, units = "in", dpi = 300)
+       width = 15, height = 10, units = "in", dpi = 300)
 
 
 #### Plot Re vs. Sitrep data for each region and save
 final.re.sitrep <- plotReSitrep(append(davaoParams, list(davao.sitrep))) + 
-        plot_layout(ncol = 1, nrow = 1)
+                   plotReSitrep(append(zamboangaParams, list(zamboanga.sitrep))) + 
+                   plot_layout(ncol = 2, nrow = 1)
 ggsave(plot = final.re.sitrep,
        filename = "output/re.sitrep.png",
-       width = 12, height = 10, units = "in", dpi = 300)
+       width = 15, height = 10, units = "in", dpi = 300)
 
 
 #### Save Re datafiles
