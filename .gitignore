@@ -1,9 +1,10 @@
 **/**/*.fasta
 **/**/*.tsv
 **/**/*.csv
+**/**/*.log
+**/**/*.RData
 **/**/*.DS_Store
 **/**/*.Rhistory
 5computePriors/scripts/doh-data-drop/211102.DOH.batch0.csv
 5computePriors/scripts/doh-data-drop/211102.DOH.batch2.csv
 5computePriors/scripts/doh-data-drop/211102.DOH.batch1.csv
-7computePriors/.RData
