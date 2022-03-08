@@ -1,3 +1,5 @@
+### Output: Re figures
+
 plotRe <- function(parameters) {
   
   # Parse inputs

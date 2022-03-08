@@ -19,12 +19,12 @@ data <- data[colnameBasis]
 colnames(data) <- c("infected")
 
 
-# Calculate date range
+### Calculate date range
 minDate <- min(data$infected, na.rm = TRUE)
 maxDate <- max(data$infected, na.rm = TRUE)
 
 
-# Calculate I
+### Calculate I
 data.case <- data.frame(table(data$infected))
 colnames(data.case) <- c("dates", "I")
 data.case$dates = as.Date(data.case$dates)
@@ -33,7 +33,7 @@ data.case <- data.case %>%
 data.case[is.na(data.case)] <- 0
 
 
-# Apply modeling
+### Apply modeling
 data.case$dates <- as.Date(data.case$dates)
 window <- 7
 t_start <- 2:(length(data.case$I) - window + 1)
@@ -44,7 +44,7 @@ res_parametric_si <- estimate_R(data.case,
                                                           mean_si = 4.8, std_si = 2.3, mean_prior = 2.6, std_prior= 2))) 
 
 
-# Make sit rep table
+### Make sit rep table
 table <- res_parametric_si$R
 table$t_start <- NULL
 names(table)[names(table) == 't_end'] <- 'Date'
@@ -53,7 +53,7 @@ table$Date <- format(as.Date(dates), "%d-%b-%y")
 rownames(table) <- NULL
 
 
-# Save table
+### Save table
 write.csv(table, file = paste0("output/Sitrep.csv"), row.names = FALSE)
 
 

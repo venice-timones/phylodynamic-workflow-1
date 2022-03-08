@@ -1,3 +1,5 @@
+### Output: Re vs. sampling dates figures
+
 plotReSampling <- function(parameters) {
   
   # Parse inputs
@@ -12,7 +14,7 @@ plotReSampling <- function(parameters) {
   source("scripts/calcRe.R")
   data <- calcRe(lf, region.title, info)
   
-  # Plot Re vs. Reported Cases
+  # Plot Re vs. Sampling dates
   region.metadata <- data.frame(table(region.metadata$date))
   region.mult <- max(region.metadata$Freq)/max(data$upper, na.rm = TRUE)
   plot <- ggplot() +

@@ -1,15 +1,15 @@
-##Load libraries
+### Load libraries
 library("dplyr")
 library("lubridate")
 
-##Read data
+### Read data
 metadata <- read.delim(file = paste0("input/", list.files(path = "input/", pattern="^[^~].*tsv$")), sep = '\t', header = TRUE)
 metadata$date <- as.Date(metadata$date, format="%Y-%m-%d")
 
-##Number of samples 
+### Count number of samples per region
 count <- data.frame(table(metadata$division))
 
-##Sampling date
+### Obtain date of youngest and oldest sampes per region
 sampdate.transform <- metadata %>% select(division, date)
 sampdate <- sampdate.transform %>%
   group_by(division) %>%
@@ -19,17 +19,17 @@ sampdate <- sampdate.transform %>%
   ) %>%
   arrange(division)
 
-##Date range and decimals
+### Calculate date range and convert dates to decimals
 sampdate <- transform(sampdate, 
                       range = youngest - oldest,
                       oldest.decimal = decimal_date(oldest),
                       youngest.decimal = decimal_date(youngest))
 
-##Make data frame
+### Aggregate all info into one data frame
 info <- data.frame(count[1], count[2], sampdate[2], sampdate[3], sampdate[4], sampdate[5], sampdate[6])
 colnames(info) <- c("Region","Clean Samples","Oldest Sample", "Youngest Samples", "Date Range", "Oldest Sample (Decimal)", "Youngest Samples (Decimal)")
 
-#Add Overall
+### Add info for Mindanao (overall)
 overall <- data.frame("Mindanao", 
                       sum(info$`Clean Samples`), 
                       min(info$`Oldest Sample`), 
@@ -40,7 +40,7 @@ overall <- data.frame("Mindanao",
 colnames(overall) <- c("Region","Clean Samples", "Oldest Sample", "Youngest Samples", "Date Range", "Oldest Sample (Decimal)", "Youngest Samples (Decimal)")
 info.final <- rbind(info, overall)
 
-##Save 
+### Save files 
 write.csv(x = info.final,
           file = "output/info.csv",
           row.names = FALSE)

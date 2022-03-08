@@ -1,4 +1,5 @@
-#### Save Re datafiles
+#### Output: Written Re datafiles
+
 saveRefiles <- function(parameters) {
   
   # Parse inputs

@@ -1,12 +1,12 @@
-#### Load libraries
+### Load libraries
 library("data.table")
 
-## Function to make region names consistent with long_lat file.
+### Function to make region names consistent with long_lat file.
 rename <- function(metadata) {
   # Change Autonomous Region In Muslim Mindanao to Bangsamoro Autonomous Region In Muslim Mindanao
   metadata$division <- ifelse(metadata$division == "Autonomous Region In Muslim Mindanao", "Bangsamoro Autonomous Region In Muslim Mindanao", metadata$division) 
   metadata$division_exposure <- ifelse(metadata$division_exposure == "Autonomous Region In Muslim Mindanao", "Bangsamoro Autonomous Region In Muslim Mindanao", metadata$division_exposure) 
-  
+
   # Change Bangsamoro Autonomous Region in Muslim Mindanao to Bangsamoro Autonomous Region In Muslim Mindanao
   metadata$division <- ifelse(metadata$division == "Bangsamoro Autonomous Region in Muslim Mindanao", "Bangsamoro Autonomous Region In Muslim Mindanao", metadata$division) 
   metadata$division_exposure <- ifelse(metadata$division_exposure == "Bangsamoro Autonomous Region in Muslim Mindanao", "Bangsamoro Autonomous Region In Muslim Mindanao", metadata$division_exposure) 
@@ -96,15 +96,16 @@ rename <- function(metadata) {
   metadata$submitting_lab <-  gsub('"', '', metadata$submitting_lab) 
   metadata$authors <-  gsub('"', '', metadata$authors) 
   
+  # Return metadata
   return (metadata)
 }
 
-## Main Function
+### Main Function
 
-# Get all tar files
+### Get all tar files
 input <- list.files(pattern=".*tar$")
 
-# Loop through each tar files
+### Loop through each tar files
 for (tar in input) {
   # Unzip tar file
   untar(tar)

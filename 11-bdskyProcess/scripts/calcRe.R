@@ -1,3 +1,5 @@
+### Output: Dataframe containing the parsed Re from BDSKY log files
+
 calcRe <- function(lf, region.title, info) {
   
   # Extract the HPDs of Re

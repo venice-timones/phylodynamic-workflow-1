@@ -1,3 +1,5 @@
+### Output: Re figures vs. statistical Re
+
 plotReSitrep <- function(parameters) {
   
   # Parse inputs
@@ -12,7 +14,7 @@ plotReSitrep <- function(parameters) {
   source("scripts/calcRe.R")
   data <- calcRe(lf, region.title, info)
   
-  # Plot Re vs. Reported Cases
+  # Plot Re vs. Statistical Re
   plot <- ggplot() +
     geom_line(region.sitrep, mapping = aes(x=as.Date(Date,"%d-%b-%y"), y=Median.R., colour="Statistical Re"), size = 1) +
     geom_ribbon(region.sitrep, mapping = aes(x=as.Date(Date, "%d-%b-%y"), ymin=Quantile.0.025.R., ymax=Quantile.0.975.R.), fill="dark red", alpha=0.2) +

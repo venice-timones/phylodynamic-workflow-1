@@ -1,3 +1,5 @@
+### Output: Re vs. reported cases figures
+
 plotReCases <- function(parameters) {
   
   # Parse inputs

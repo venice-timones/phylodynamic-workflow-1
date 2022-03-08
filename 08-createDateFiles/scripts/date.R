@@ -1,8 +1,8 @@
-## Load libraries
+### Load libraries
 require(pacman)
 p_load(EpiCurve,dplyr,tidyr,pacman, ggplot2,ggthemes,broom,stringr,ggpubr,scales,lubridate)
 
-# Read metadata files
+### Read metadata files
 metadataFiles <- list.files(path = "input/", pattern="^[^~].*tsv$")
 
 for (metadataName in metadataFiles) {
@@ -14,7 +14,7 @@ for (metadataName in metadataFiles) {
   metadata <- data.frame(metadata$strain, metadata$date)
   colnames(metadata) <- c("strain", "date")
   
-  #Save dataframe
+  # Save dataframe
   write.table(metadata, 
               file = paste0("output/", gsub('.{4}$', '', metadataName), "Date.txt"),
               quote=FALSE, 
