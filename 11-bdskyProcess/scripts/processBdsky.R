@@ -43,7 +43,7 @@ metadata$data <- as.Date(metadata$date, format="%Y-%m-%d")
 info <- read.delim(file = "input/info.csv", sep = ',', header = TRUE)
 
 
-### Plot limits
+#### Plot limits
 minimum = "2021-01-01"
 maximum = max(info$Youngest.Samples)
 
