@@ -57,12 +57,12 @@ source("scripts/plotReSitrep.R")
 
 
 #### Define inputs for plottings
-barmmParams <- list(barmm.log, "BARMM", info, minimum, maximum)
+barmmParams <- list(barmm.log, "Bangsamoro Autonomous Region In Muslim Mindanao", info, minimum, maximum)
 caragaParams <- list(caraga.log, "Caraga", info, minimum, maximum)
-davaoParams <- list(davao.log, "Davao", info, minimum, maximum) 
+davaoParams <- list(davao.log, "Davao Region", info, minimum, maximum) 
 northmindanaoParams <- list(northmindanao.log, "Northern Mindanao", info, minimum, maximum)
 soccsksargenParams <- list(soccsksargen.log, "Soccsksargen", info, minimum, maximum)
-zamboangaParams <- list(zamboanga.log, "Zamboanga", info, minimum, maximum)
+zamboangaParams <- list(zamboanga.log, "Zamboanga Peninsula", info, minimum, maximum)
 
 
 #### Plot Re for each region and save
@@ -75,7 +75,7 @@ final.re <- plotRe(barmmParams) +
             plot_layout(ncol = 2, nrow = 3)
 ggsave(plot = final.re,
        filename = "output/re.png",
-       width = 15, height = 10, units = "in", dpi = 300)
+       width = 20, height = 10, units = "in", dpi = 300)
 
 
 #### Plot Re vs reported cases for each region and save
@@ -88,7 +88,7 @@ final.re.cases <- plotReCases(append(barmmParams, list(subset(doh, RegionRes == 
                   plot_layout(ncol = 2, nrow = 3)
 ggsave(plot = final.re.cases,
        filename = "output/re.cases.png",
-       width = 15, height = 10, units = "in", dpi = 300)
+       width = 20, height = 10, units = "in", dpi = 300)
 
 
 #### Plot Re vs. Sampling Dates for each region and save
@@ -101,7 +101,7 @@ final.re.sampling <- plotReSampling(append(barmmParams, list(subset(metadata, di
                      plot_layout(ncol = 2, nrow = 3)
 ggsave(plot = final.re.sampling,
        filename = "output/re.sampling.png",
-       width = 15, height = 10, units = "in", dpi = 300)
+       width = 20, height = 10, units = "in", dpi = 300)
 
 
 #### Plot Re vs. Sitrep data for each region and save
@@ -110,7 +110,7 @@ final.re.sitrep <- plotReSitrep(append(davaoParams, list(davao.sitrep))) +
                    plot_layout(ncol = 2, nrow = 1)
 ggsave(plot = final.re.sitrep,
        filename = "output/re.sitrep.png",
-       width = 15, height = 10, units = "in", dpi = 300)
+       width = 20, height = 10, units = "in", dpi = 300)
 
 
 #### Save Re datafiles
