@@ -10,14 +10,14 @@ Input
   * `davao.posterior.log`
   * `caraga.posterior.log`
   * `barmm.posterior.log`
-* Metadata of BDMM aligned (for sampling dates).
+* Metadata of Mindanao samples (for sampling dates).
   * `metadata.tsv`
 * DOH Data drop (for reported cases). Note: This dataset was removed in the example due to large size.
   * `220303.DOH.batch0.csv`
   * `220303.DOH.batch1.csv`
   * `220303.DOH.batch2.csv`
   * `220303.DOH.batch3.csv`
-* Info of the BDMM aligned (for date of the most recent sample for each region)
+* Info of the Mindanao samples (for date of the most recent sample for each region)
   * `info.csv`
 * Sitrep Re for each region (for statistical Re).
   * `davaoSitrep.csv`
