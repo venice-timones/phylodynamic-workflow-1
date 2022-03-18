@@ -1,7 +1,7 @@
 #! /bin/bash
 
 # Preliminaries
-cd GitHub/gisaid-preprocessing/03-subsampleSequencesMindanao
+cd GitHub/phylodynamic-workflow/03-subsampleSequencesMindanao
 source activate nextstrain
 
 # Subsample to mindanao

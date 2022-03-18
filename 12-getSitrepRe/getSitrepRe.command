@@ -1,7 +1,7 @@
 #! /bin/bash
 
 # Preliminaries
-cd GitHub/gisaid-preprocessing/12-getSitrepRe
+cd GitHub/phylodynamic-workflow/12-getSitrepRe
 source activate nextstrain
 
 # Create datefile

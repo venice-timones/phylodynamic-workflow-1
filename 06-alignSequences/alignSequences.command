@@ -1,7 +1,7 @@
 #! /bin/bash
 
 # Preliminaries
-cd GitHub/gisaid-preprocessing/06-alignSequences
+cd GitHub/phylodynamic-workflow/06-alignSequences
 source activate nextstrain
 
 # Download latest reference

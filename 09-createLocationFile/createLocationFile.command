@@ -1,7 +1,7 @@
 #! /bin/bash
 
 # Preliminaries
-cd GitHub/gisaid-preprocessing/09-createLocationFile
+cd GitHub/phylodynamic-workflow/09-createLocationFile
 source activate nextstrain
 
 # Create datefile

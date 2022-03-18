@@ -1,7 +1,7 @@
 #! /bin/bash
 
 # Preliminaries
-cd GitHub/gisaid-preprocessing/05-subsampleSequencesRegion
+cd GitHub/phylodynamic-workflow/05-subsampleSequencesRegion
 source activate nextstrain
 
 ### EDIT SECTION ###
