@@ -2,7 +2,7 @@
 
 # Preliminaries
 cd GitHub/phylodynamic-workflow/04-qualityCheckSequences
-source activate nextstrain
+source activate phylodynamics
 
 # Declare sequences and metadata names
 declare sequence=$(ls input/*.fasta)  

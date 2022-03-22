@@ -2,7 +2,7 @@
 
 # Preliminaries
 cd GitHub/phylodynamic-workflow/05-subsampleSequencesRegion
-source activate nextstrain
+source activate phylodynamics
 
 ### EDIT SECTION ###
 # Declare region names

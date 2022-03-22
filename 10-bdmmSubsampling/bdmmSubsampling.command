@@ -2,7 +2,7 @@
 
 # Preliminaries
 cd GitHub/phylodynamic-workflow/10-bdmmSubsampling
-source activate nextstrain
+source activate phylodynamics
 
 # Subsample for bdmm data
 augur filter \

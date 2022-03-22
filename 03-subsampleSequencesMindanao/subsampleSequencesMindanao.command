@@ -2,7 +2,7 @@
 
 # Preliminaries
 cd GitHub/phylodynamic-workflow/03-subsampleSequencesMindanao
-source activate nextstrain
+source activate phylodynamics
 
 # Subsample to mindanao
 augur filter \

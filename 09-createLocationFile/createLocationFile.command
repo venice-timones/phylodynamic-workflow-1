@@ -2,7 +2,7 @@
 
 # Preliminaries
 cd GitHub/phylodynamic-workflow/09-createLocationFile
-source activate nextstrain
+source activate phylodynamics
 
 # Create datefile
 Rscript ./scripts/location.R 

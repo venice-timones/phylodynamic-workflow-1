@@ -2,7 +2,7 @@
 
 # Preliminaries
 cd GitHub/phylodynamic-workflow/07-computePriors
-source activate nextstrain
+source activate phylodynamics
 
 # Calculate info
 Rscript ./scripts/info.R 

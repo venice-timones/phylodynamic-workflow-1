@@ -2,7 +2,7 @@
 
 # Preliminaries
 cd GitHub/phylodynamic-workflow/06-alignSequences
-source activate nextstrain
+source activate phylodynamics
 
 # Download latest reference
 nextclade dataset get --name 'sars-cov-2' --output-dir 'scripts/reference'
