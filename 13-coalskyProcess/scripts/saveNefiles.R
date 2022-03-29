@@ -36,6 +36,6 @@ saveNefiles <- function(parameters) {
   # Merge two columns
   neDatafile <- merge(data, region.doh, by="date")
   
-  # Save datafile
-  write.csv(neDatafile, file = gsub(" ", "", paste0("output/", region.title, "NeDatafile.csv")), row.names = FALSE)
+  # Return datafile
+  return (neDatafile)
 }

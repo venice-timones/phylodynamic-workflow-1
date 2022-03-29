@@ -36,7 +36,7 @@ davao.sitrep <- read.delim(file = "scripts/sit-rep/davaoSitrep.csv", sep = ',', 
 zamboanga.sitrep <- read.delim(file = "scripts/sit-rep/zamboangaSitrep.csv", sep = ',', header = TRUE)
         
 # Metadata file for sampling times
-metadata <- read.delim(file = "input/metadata.tsv" , sep = '\t', header = TRUE)
+metadata <- read.delim(file = "input/mindanao.tsv" , sep = '\t', header = TRUE)
 metadata$data <- as.Date(metadata$date, format="%Y-%m-%d")
 
 # Info file for latest sampling dates of each region
@@ -113,10 +113,20 @@ ggsave(plot = final.re.sitrep,
        width = 20, height = 10, units = "in", dpi = 300)
 
 
+#### Compute Re datafiles
+barmmReDatafile         <- saveRefiles(append(barmmParams, list(subset(doh, RegionRes == "BARMM")))) 
+caragaReDatafile        <- saveRefiles(append(caragaParams, list(subset(doh, RegionRes == "CARAGA"))))
+davaoReDatafile         <- saveRefiles(append(davaoParams, list(subset(doh, RegionRes == "Region XI: Davao Region"))))
+northmindanaoReDatafile <- saveRefiles(append(northmindanaoParams, list(subset(doh, RegionRes == "Region X: Northern Mindanao"))))
+soccsksargenReDatafile  <- saveRefiles(append(soccsksargenParams, list(subset(doh, RegionRes == "Region XII: SOCCSKSARGEN"))))
+zamboangaReDatafile     <- saveRefiles(append(zamboangaParams, list(subset(doh, RegionRes == "Region IX: Zamboanga Peninsula"))))
+barmmReDatafile["Region"]               <- "BARMM"
+caragaReDatafile["Region"]              <- "CARAGA"
+davaoReDatafile["Region"]               <- "DAVAO"
+northmindanaoReDatafile["Region"]       <- "NORTHMINDANAO"
+soccsksargenReDatafile["Region"]        <- "SOCCSKSARGEN"
+zamboangaReDatafile["Region"]           <- "ZAMBOANGA"
+
 #### Save Re datafiles
-saveRefiles(append(barmmParams, list(subset(doh, RegionRes == "BARMM")))) 
-saveRefiles(append(caragaParams, list(subset(doh, RegionRes == "CARAGA"))))
-saveRefiles(append(davaoParams, list(subset(doh, RegionRes == "Region XI: Davao Region"))))
-saveRefiles(append(northmindanaoParams, list(subset(doh, RegionRes == "Region X: Northern Mindanao"))))
-saveRefiles(append(soccsksargenParams, list(subset(doh, RegionRes == "Region XII: SOCCSKSARGEN"))))
-saveRefiles(append(zamboangaParams, list(subset(doh, RegionRes == "Region IX: Zamboanga Peninsula")))) 
+reDatafile <- rbind(barmmReDatafile, caragaReDatafile, davaoReDatafile, northmindanaoReDatafile, soccsksargenReDatafile, zamboangaReDatafile)
+write.csv(reDatafile, file = "output/ReDatafile.csv", row.names = FALSE)

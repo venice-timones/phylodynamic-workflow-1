@@ -25,7 +25,7 @@ doh <- rbind(doh1, doh2, doh3, doh4)
 doh$DateRepConf <- as.Date(doh$DateRepConf, format="%Y-%m-%d")
 
 # Metadata file for sampling times
-metadata <- read.delim(file = "input/metadata.tsv" , sep = '\t', header = TRUE)
+metadata <- read.delim(file = "input/mindanao.tsv" , sep = '\t', header = TRUE)
 metadata$data <- as.Date(metadata$date, format="%Y-%m-%d")
 
 # Info file for latest sampling dates of each region
@@ -92,10 +92,20 @@ ggsave(plot = final.ne.sampling,
        width = 15, height = 10, units = "in", dpi = 300)
 
 
-#### Save Re datafiles
-saveNefiles(append(barmmParams, list(subset(doh, RegionRes == "BARMM")))) 
-saveNefiles(append(caragaParams, list(subset(doh, RegionRes == "CARAGA"))))
-saveNefiles(append(davaoParams, list(subset(doh, RegionRes == "Region XI: Davao Region"))))
-saveNefiles(append(northmindanaoParams, list(subset(doh, RegionRes == "Region X: Northern Mindanao"))))
-saveNefiles(append(soccsksargenParams, list(subset(doh, RegionRes == "Region XII: SOCCSKSARGEN"))))
-saveNefiles(append(zamboangaParams, list(subset(doh, RegionRes == "Region IX: Zamboanga Peninsula")))) 
+#### Compute Ne datafiles
+barmmNeDatafile         <- saveNefiles(append(barmmParams, list(subset(doh, RegionRes == "BARMM")))) 
+caragaNeDatafile        <- saveNefiles(append(caragaParams, list(subset(doh, RegionRes == "CARAGA"))))
+davaoNeDatafile         <- saveNefiles(append(davaoParams, list(subset(doh, RegionRes == "Region XI: Davao Region"))))
+northmindanaoNeDatafile <- saveNefiles(append(northmindanaoParams, list(subset(doh, RegionRes == "Region X: Northern Mindanao"))))
+soccsksargenNeDatafile  <- saveNefiles(append(soccsksargenParams, list(subset(doh, RegionRes == "Region XII: SOCCSKSARGEN"))))
+zamboangaNeDatafile     <- saveNefiles(append(zamboangaParams, list(subset(doh, RegionRes == "Region IX: Zamboanga Peninsula")))) 
+barmmNeDatafile["Region"]               <- "BARMM"
+caragaNeDatafile["Region"]              <- "CARAGA"
+davaoNeDatafile["Region"]               <- "DAVAO"
+northmindanaoNeDatafile["Region"]       <- "NORTHMINDANAO"
+soccsksargenNeDatafile["Region"]        <- "SOCCSKSARGEN"
+zamboangaNeDatafile["Region"]           <- "ZAMBOANGA"
+
+#### Save Ne datafiles
+neDatafile <- rbind(barmmNeDatafile, caragaNeDatafile, davaoNeDatafile, northmindanaoNeDatafile, soccsksargenNeDatafile, zamboangaNeDatafile)
+write.csv(neDatafile, file = "output/ReDatafile.csv", row.names = FALSE)

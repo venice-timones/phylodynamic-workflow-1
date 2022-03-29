@@ -33,6 +33,6 @@ saveRefiles <- function(parameters) {
   # Merge two columns
   reDatafile <- merge(data, region.doh, by="date")
   
-  # Save datfile
-  write.csv(reDatafile, file = gsub(" ", "", paste0("output/", region.title, "ReDatafile.csv")), row.names = FALSE)
+  # Return data file
+  return (reDatafile)
 }
