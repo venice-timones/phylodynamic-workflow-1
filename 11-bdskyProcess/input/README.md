@@ -4,14 +4,14 @@ Put here the input files.
 Input
 
 * Per region log file from BEAST output.
-  * `zamboanga.posterior.log`
-  * `soccsksargen.posterior.log`
-  * `northmindanao.posterior.log`
-  * `davao.posterior.log`
-  * `caraga.posterior.log`
-  * `barmm.posterior.log`
+  * `zamboanga.log`
+  * `soccsksargen.log`
+  * `northmindanao.log`
+  * `davao.log`
+  * `caraga.log`
+  * `barmm.log`
 * Metadata of Mindanao samples (for sampling dates).
-  * `metadata.tsv`
+  * `mindanao.tsv`
 * DOH Data drop (for reported cases). Note: This dataset was removed in the example due to large size.
   * `220303.DOH.batch0.csv`
   * `220303.DOH.batch1.csv`
