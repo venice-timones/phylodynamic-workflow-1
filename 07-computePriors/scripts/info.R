@@ -42,5 +42,3 @@ colnames(info) <- c("region","cleanSamples","oldestSample", "youngestSample", "d
 write.csv(x = info,
           file = "output/info.csv",
           row.names = FALSE)
-
-
