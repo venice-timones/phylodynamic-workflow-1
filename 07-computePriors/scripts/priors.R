@@ -8,44 +8,60 @@ library(dplyr)
 library(lubridate)
 
 ### Read input
-est.start <- as.Date("2020-03-15", format="%Y-%m-%d")
 doh1 <- read.delim((file = "scripts/doh-data-drop/220303.DOH.batch0.csv") , sep = ',', header = TRUE)
 doh2 <- read.delim((file = "scripts/doh-data-drop/220303.DOH.batch1.csv") , sep = ',', header = TRUE)
 doh3 <- read.delim((file = "scripts/doh-data-drop/220303.DOH.batch2.csv") , sep = ',', header = TRUE)
 doh4 <- read.delim((file = "scripts/doh-data-drop/220303.DOH.batch3.csv") , sep = ',', header = TRUE)
 doh <- rbind(doh1, doh2, doh3, doh4)
 doh$DateRepConf <- as.Date(doh$DateRepConf, format="%Y-%m-%d")
+
 info <- read.delim(file = "output/info.csv" , sep = ',', header = TRUE)
-info$Oldest.Sample <- as.Date(info$Oldest.Sample, format="%Y-%m-%d")
-info$Youngest.Samples <- as.Date(info$Youngest.Samples, format="%Y-%m-%d")
+info$oldestSample <- as.Date(info$oldestSample, format="%Y-%m-%d")
+info$youngestSample <- as.Date(info$youngestSample, format="%Y-%m-%d")
+
+
+### Declare EST_START
+EST_START <- as.Date("2020-03-15", format="%Y-%m-%d")
+
 
 ### Define function to calculate number of cases as of the latest sample
-cases_as_of <- function(region.doh.name, date) {
-  region.doh <- subset(doh, RegionRes == region.doh.name)
-  region.doh <- data.frame(table(region.doh$DateRepConf))
-  region.doh[, 2] <- cumsum(region.doh[, 2])
-  return(region.doh$Freq[region.doh$Var1 == date])
+cases_as_of <- function(subset, date) {
+  subset <- data.frame(table(subset$DateRepConf))
+  subset[, 2] <- cumsum(subset[, 2])
+  return(subset$Freq[subset$Var1 == date])
 }
 
+
+### Subset DOH datafile to Mindanao only
+mindanao <- c("BARMM", "CARAGA", "Region XI: Davao Region", "Region X: Northern Mindanao", "Region XII: SOCCSKSARGEN", "Region IX: Zamboanga Peninsula")
+dohMindanao <- subset(doh, RegionRes %in% mindanao)
+
+
 ### Add column for cumulative cases
-info['cases'] <- c(cases_as_of("BARMM", as.character(info$Youngest.Samples[info$Region == "Bangsamoro Autonomous Region In Muslim Mindanao"])),
-                   cases_as_of("CARAGA", as.character(info$Youngest.Samples[info$Region == "Caraga"])),
-                   cases_as_of("Region XI: Davao Region", as.character(info$Youngest.Samples[info$Region == "Davao Region"])),
-                   cases_as_of("Region X: Northern Mindanao", as.character(info$Youngest.Samples[info$Region == "Northern Mindanao"])),
-                   cases_as_of("Region XII: SOCCSKSARGEN", as.character(info$Youngest.Samples[info$Region == "Soccsksargen"])),
-                   cases_as_of("Region IX: Zamboanga Peninsula", as.character(info$Youngest.Samples[info$Region == "Zamboanga Peninsula"])),
-                   0)
-info$cases[info$Region == "Mindanao"] = sum(info$cases)
+info$cases <- 0
+for(i in 1:length(mindanao)) {
+  subset <- subset(dohMindanao, RegionRes == mindanao[i]) 
+  date <- as.character(info$youngestSample[i])
+  info$cases[i] <- cases_as_of(subset, date)
+}
 
-##Add column for sampling proportion prior
+
+### Sum the cases column and set is as the cases for the mindanao row
+info$cases[info$region == "Mindanao"] = sum(info$cases)
+info$cases[info$region == "BDMM"] = info$cases[info$region == "Mindanao"]
+
+
+### Add column for sampling proportion prior
 info <- transform(info,
-                  samp.proportion = Clean.Samples/cases)
+                  sampProp = cleanSamples/cases)
 
-##Add column for origin prior
-info <- transform(info,
-                  median.origin = difftime(info$Youngest.Samples, est.start, units = c("days"))/365.25)
 
-##Save 
+### Add column for origin prior
+info <- transform(info, 
+                  medianOriginDays = round(as.numeric(difftime(info$youngestSample, EST_START, units = c("days"))/365.25),2))
+
+
+### Save 
 write.csv(x = info,
-          file="output/priors.csv",
+          file="output/info.csv",
           row.names = FALSE)
