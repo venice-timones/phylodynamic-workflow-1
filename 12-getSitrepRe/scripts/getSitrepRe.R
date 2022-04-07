@@ -55,5 +55,3 @@ rownames(table) <- NULL
 
 ### Save table
 write.csv(table, file = paste0("output/Sitrep.csv"), row.names = FALSE)
-
-
