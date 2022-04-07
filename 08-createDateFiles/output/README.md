@@ -1,6 +1,6 @@
 # Folder for output
-All output files is put here.
+The output file is put here.
 
 Output: 
 
-* Date files: `*Date.txt`
+* Date file: `*Date.txt`

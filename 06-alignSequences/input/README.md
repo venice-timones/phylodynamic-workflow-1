@@ -1,5 +1,5 @@
 # Folder for input
-Put here the input files.
+Put here the input file. This works one at a time.
 
 Input:
 

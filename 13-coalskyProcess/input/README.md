@@ -17,3 +17,5 @@
   * `220303.DOH.batch3.csv`
 * Info of the Mindanao samples (for date of the most recent sample for each region)
   * `info.csv`
+
+Note: DOH files were not included in git due to their very large size. Graphs starts at 2021-01-01. 
