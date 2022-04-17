@@ -127,6 +127,39 @@ northmindanaoReDatafile["Region"]       <- "NORTHMINDANAO"
 soccsksargenReDatafile["Region"]        <- "SOCCSKSARGEN"
 zamboangaReDatafile["Region"]           <- "ZAMBOANGA"
 
+
 #### Save Re datafiles
 reDatafile <- rbind(barmmReDatafile, caragaReDatafile, davaoReDatafile, northmindanaoReDatafile, soccsksargenReDatafile, zamboangaReDatafile)
 write.csv(reDatafile, file = "output/ReDatafile.csv", row.names = FALSE)
+
+
+#### Plot epi parameters
+epiParam <- c('becomeUninfectiousRate_BDSKY_Serial', 'origin_BDSKY_Serial', 'samplingProportion_BDSKY_Serial')
+for (param in epiParam) {
+       max_rows <- max(length(barmm.log[[param]]),
+                       length(caraga.log[[param]]),
+                       length(davao.log[[param]]),
+                       length(northmindanao.log[[param]]),
+                       length(soccsksargen.log[[param]]),
+                       length(zamboanga.log[[param]]))
+       param.df <- cbind(barmm         = c(barmm.log[[param]],         rep(NA, max_rows - length(barmm.log[[param]]))),
+                         caraga        = c(caraga.log[[param]],        rep(NA, max_rows - length(caraga.log[[param]]))),
+                         davao         = c(davao.log[[param]],         rep(NA, max_rows - length(davao.log[[param]]))),
+                         northmindanao = c(northmindanao.log[[param]], rep(NA, max_rows - length(northmindanao.log[[param]]))),
+                         soccsksargen  = c(soccsksargen.log[[param]],  rep(NA, max_rows - length(soccsksargen.log[[param]]))),
+                         zamboanga     = c(zamboanga.log[[param]]),    rep(NA, max_rows - length(zamboanga.log[[param]])))
+       param.df <- as.data.frame(param.df)
+       param.df <- param.df %>% gather(region, value)
+       param.plot <- ggplot(data = param.df,
+                            mapping = aes(x = value, y = ..density.., fill = region)) +
+                            geom_density(alpha = 0.7) +
+                            scale_fill_manual(values = c("#F76D5E", "#FFFFBF", "#72D8FF", "#228B22", "#8F00FF", "#FFA500")) +
+                            theme_classic() +
+                            labs(x = gsub("\\_.*","", param), y = "Marginal Density") +
+                            guides(fill = guide_legend(title = "Region")) + 
+                            theme(axis.title.y = element_text(margin = margin(t = 0, r = 15, b = 0, l = 0)),
+                                  axis.title.x = element_text(margin = margin(t = 15, r = 0, b = 0, l = 0)))
+       ggsave(plot = param.plot,
+              filename = paste0('output/', gsub("\\_.*","", param), '.png'),
+              width = 7, height = 5, units = "in", dpi = 300)
+}
