@@ -63,7 +63,7 @@ final.ne <- plotNe(barmmParams) +
             plot_layout(ncol = 2, nrow = 3)
 ggsave(plot = final.ne,
        filename = "output/ne.png",
-       width = 15, height = 10, units = "in", dpi = 300)
+       width = 25, height = 10, units = "in", dpi = 300)
 
 
 #### Plot Re vs reported cases for each region and save
@@ -76,7 +76,7 @@ final.ne.cases <- plotNeCases(append(barmmParams, list(subset(doh, RegionRes == 
                   plot_layout(ncol = 2, nrow = 3)
 ggsave(plot = final.ne.cases,
        filename = "output/ne.cases.png",
-       width = 15, height = 10, units = "in", dpi = 300)
+       width = 25, height = 10, units = "in", dpi = 300)
 
 
 #### Plot Ne vs. Sampling Dates for each region and save
@@ -89,7 +89,7 @@ final.ne.sampling <- plotNeSampling(append(barmmParams, list(subset(metadata, di
                      plot_layout(ncol = 2, nrow = 3)
 ggsave(plot = final.ne.sampling,
        filename = "output/ne.sampling.png",
-       width = 15, height = 10, units = "in", dpi = 300)
+       width = 25, height = 10, units = "in", dpi = 300)
 
 
 #### Compute Ne datafiles
@@ -108,4 +108,4 @@ zamboangaNeDatafile["Region"]           <- "ZAMBOANGA"
 
 #### Save Ne datafiles
 neDatafile <- rbind(barmmNeDatafile, caragaNeDatafile, davaoNeDatafile, northmindanaoNeDatafile, soccsksargenNeDatafile, zamboangaNeDatafile)
-write.csv(neDatafile, file = "output/ReDatafile.csv", row.names = FALSE)
+write.csv(neDatafile, file = "output/NeDatafile.csv", row.names = FALSE)
