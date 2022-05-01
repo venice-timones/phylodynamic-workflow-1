@@ -7,6 +7,7 @@ source activate phylodynamics
 # Subsample for bdmm data
 augur filter \
     --metadata input/*.tsv \
+    --max-date '2021-08-31' \
     --group-by division year month \
     --subsample-max-sequences 500 \
     --subsample-seed 1412 \
