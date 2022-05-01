@@ -22,5 +22,5 @@ sequenceAlignedTrimmed <- as.character(sequenceAlignedTrimmed)
 #### Save trimmed to FASTA
 write.fasta(sequences = sequenceAlignedTrimmed, 
             names = sequenceLabels, 
-            file.out = "output/barmmTrimmed.fasta")
+            file.out = gsub('.fasta', 'Trimmed.fasta', gsub('input', 'output', paste0("input/", list.files(path = "input/", pattern=".*fasta")))))
 
