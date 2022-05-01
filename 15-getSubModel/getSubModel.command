@@ -2,7 +2,7 @@
 
 # Preliminaries
 cd GitHub/phylodynamic-workflow/15-getSubModel
-conda activate phylodynamics
+source activate phylodynamics
 
 # Perform jmodel test
 iqtree -s input/*.fasta -m MF
@@ -11,4 +11,4 @@ iqtree -s input/*.fasta -m MF
 mv input/*.log output/
 
 # Remove intermediate files
-rm input/*fasta*
+rm input/*fasta.*
