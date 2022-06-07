@@ -10,7 +10,7 @@ calcRe <- function(lf, region.title, info) {
   timegrid <- seq(0,median(lf$origin),length.out=101)
   Re_gridded <- gridSkyline(Re_sky,lf$origin, timegrid)
   Re_gridded_hpd <- getMatrixHPD(Re_gridded)
-  times <- info$Youngest.Samples..Decimal.[info$Region==region.title]-timegrid
+  times <- info$youngestSampleDecimal[info$region==region.title]-timegrid
   
   # Convert to dataframe
   data <- t(Re_gridded_hpd)

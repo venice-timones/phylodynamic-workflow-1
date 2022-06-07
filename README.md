@@ -18,4 +18,4 @@ Install also [R](https://cran.r-project.org/bin/windows/base/) and [R studio](ht
 
 ## Usage
 
-Each step in the workflow is modularized. Perform a specific step by executing the corresponding `.command` file. Details on what input files are needed and what output files would be created are in the `README.md` file of each folder.
+Each step in the workflow is modularized. Perform a specific step by executing the corresponding `.command` file. Details on what input files are needed and what output files would be created are in the `README.md` file of each folder. Note that all dates should be in the `YYYY-MM-DD` format.

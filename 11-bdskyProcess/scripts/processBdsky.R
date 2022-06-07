@@ -45,7 +45,7 @@ info <- read.delim(file = "input/info.csv", sep = ',', header = TRUE)
 
 #### Plot limits
 minimum = "2021-01-01"
-maximum = max(info$Youngest.Samples)
+maximum = max(info$youngestSample)
 
 
 #### Load functions
