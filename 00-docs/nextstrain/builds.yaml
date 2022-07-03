@@ -1,0 +1,145 @@
+# Define input files.
+inputs:
+  - name: global
+    metadata: data/ph/gisaid_global.tar
+    sequences: data/ph/gisaid_global.tar
+  - name: asia
+    metadata: data/ph/gisaid_asia.tar
+    sequences: data/ph/gisaid_asia.tar
+  - name: ph1
+    metadata: data/ph/gisaid_ph1.tar
+    sequences: data/ph/gisaid_ph1.tar
+  - name: ph2
+    metadata: data/ph/gisaid_ph2.tar
+    sequences: data/ph/gisaid_ph2.tar
+  - name: ph3
+    metadata: data/ph/gisaid_ph3.tar
+    sequences: data/ph/gisaid_ph3.tar
+  - name: ph4
+    metadata: data/ph/gisaid_ph4.tar
+    sequences: data/ph/gisaid_ph4.tar
+  - name: barmm1
+    metadata: data/ph/gisaid_barmm1.tar
+    sequences: data/ph/gisaid_barmm1.tar
+  - name: barmm2
+    metadata: data/ph/gisaid_barmm2.tar
+    sequences: data/ph/gisaid_barmm2.tar
+  - name: caraga
+    metadata: data/ph/gisaid_caraga.tar
+    sequences: data/ph/gisaid_caraga.tar
+  - name: davao1
+    metadata: data/ph/gisaid_davao1.tar
+    sequences: data/ph/gisaid_davao1.tar
+  - name: davao2
+    metadata: data/ph/gisaid_davao2.tar
+    sequences: data/ph/gisaid_davao2.tar
+  - name: davao3
+    metadata: data/ph/gisaid_davao3.tar
+    sequences: data/ph/gisaid_davao3.tar
+  - name: northmin1
+    metadata: data/ph/gisaid_northmin1.tar
+    sequences: data/ph/gisaid_northmin1.tar
+  - name: northmin2
+    metadata: data/ph/gisaid_northmin2.tar
+    sequences: data/ph/gisaid_northmin2.tar
+  - name: soccsksargen1
+    metadata: data/ph/gisaid_soccsksargen1.tar
+    sequences: data/ph/gisaid_soccsksargen1.tar
+  - name: soccsksargen2
+    metadata: data/ph/gisaid_soccsksargen2.tar
+    sequences: data/ph/gisaid_soccsksargen2.tar
+  - name: zamboanga1
+    metadata: data/ph/gisaid_zamboanga1.tar
+    sequences: data/ph/gisaid_zamboanga1.tar
+  - name: zamboanga2
+    metadata: data/ph/gisaid_zamboanga2.tar
+    sequences: data/ph/gisaid_zamboanga2.tar
+
+# Define build
+builds:
+  # First we'll define a regional-level build, focused on Mindanao.
+  # Then country level, continent level, to global level.
+  # We'll define the sampling schemes below
+  global: # Build name
+    subsampling_scheme: global
+    title: 'SARS-CoV-2 Sequences Global'
+  asia: # Build name
+    region: Asia
+    subsampling_scheme: asia
+    title: 'SARS-CoV-2 Sequences in Asia'
+  philippines: # Build name
+    region: Asia
+    country: Philippines
+    subsampling_scheme: philippines
+    title: 'SARS-CoV-2 Sequences in Philippines'
+  mindanao: # Build name
+    region: Asia
+    country: Philippines
+    subsampling_scheme: mindanao
+    title: 'SARS-CoV-2 Sequences in Mindanao'
+
+# Define subsampling schemes
+subsampling:
+  global: #build-name
+    global: #chose samples worldwide except the mindanao samples, favor samples closely related to the mindanao samples
+      group_by: 'region year month'
+      seq_per_group: 20
+      query: --query "(division != 'Zamboanga Peninsula') & (division != 'Northern Mindanao') & (division != 'Davao Region') & (division != 'Soccsksargen') & (division != 'Caraga') & (division != 'Bangsamoro Autonomous Region In Muslim Mindanao')"
+      priorities:
+        type: 'proximity'
+        focus: 'mindanao'
+    mindanao: #chose here the mindanao samples
+      max_sequences: 100
+      group_by: 'division year month'
+      query: --query "((division == 'Zamboanga Peninsula') | (division == 'Northern Mindanao') | (division == 'Davao Region') | (division == 'Soccsksargen') | (division == 'Caraga') | (division == 'Bangsamoro Autonomous Region In Muslim Mindanao')) & (country == 'Philippines')"
+  asia: #build-name
+    asia: #chose samples from Asia except the mindanao samples, favor samples closely related to the mindanao samples
+      group_by: 'country year month'
+      seq_per_group: 5
+      query: --query "(division != 'Zamboanga Peninsula') & (division != 'Northern Mindanao') & (division != 'Davao Region') & (division != 'Soccsksargen') & (division != 'Caraga') & (division != 'Bangsamoro Autonomous Region In Muslim Mindanao') & (region == '{region}')"
+      priorities:
+        type: 'proximity'
+        focus: 'mindanao'
+    mindanao: #chose here the mindanao samples
+      max_sequences: 100
+      group_by: 'division year month'
+      query: --query "((division == 'Zamboanga Peninsula') | (division == 'Northern Mindanao') | (division == 'Davao Region') | (division == 'Soccsksargen') | (division == 'Caraga') | (division == 'Bangsamoro Autonomous Region In Muslim Mindanao')) & (country == 'Philippines')"
+  philippines: #build-name
+    philippines: #chose samples from Philippines except the mindanao samples, favor samples closely related to the mindanao samples
+      group_by: 'division year month'
+      seq_per_group: 15
+      query: --query "(division != 'Zamboanga Peninsula') & (division != 'Northern Mindanao') & (division != 'Davao Region') & (division != 'Soccsksargen') & (division != 'Caraga') & (division != 'Bangsamoro Autonomous Region In Muslim Mindanao') & (country == '{country}')"
+      priorities:
+        type: 'proximity'
+        focus: 'mindanao'
+    mindanao: #chose here the mindanao samples
+      max_sequences: 100
+      group_by: 'division year month'
+      query: --query "((division == 'Zamboanga Peninsula') | (division == 'Northern Mindanao') | (division == 'Davao Region') | (division == 'Soccsksargen') | (division == 'Caraga') | (division == 'Bangsamoro Autonomous Region In Muslim Mindanao')) & (country == '{country}')"
+  mindanao: #build-name
+    mindanao: #chose here the mindanao samples
+      group_by: 'division year month'
+      seq_per_group: 300
+      query: --query "((division == 'Zamboanga Peninsula') | (division == 'Northern Mindanao') | (division == 'Davao Region') | (division == 'Soccsksargen') | (division == 'Caraga') | (division == 'Bangsamoro Autonomous Region In Muslim Mindanao')) & (country == '{country}')"
+
+# Specify what type of auspice_config to use
+# and what description to display. These will apply to all the above builds.
+files:
+  description: 'my_profiles/ph/my_description.md'
+  auspice_config: 'my_profiles/ph/auspice-config-custom-data.json'
+
+# Define ancestral trait reconstruction
+traits:
+  global: ### build name
+    sampling_bias_correction: 2.5
+    columns: ['country'] ### traits to reconstruct; must match column names in metadata.tsv
+  asia: ### build name
+    sampling_bias_correction: 2.5
+    columns: ['country'] ### traits to reconstruct; must match column names in metadata.tsv
+  philippines: ### build name
+    sampling_bias_correction: 2.5
+    columns: ['division'] ### traits to reconstruct; must match column names in metadata.tsv
+  mindanao: ### build name
+    sampling_bias_correction: 2.5
+    columns: ['division'] ### traits to reconstruct; must match column names in metadata.tsv
+
