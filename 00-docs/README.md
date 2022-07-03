@@ -28,7 +28,4 @@
 
 ## Nextstrain
 
-1. ### Preprocessing
-
-- #### [01 - Download data from GISAID]()
-- #### [02 - Fix known metadata issues]()
+- #### [Nextstrain docs](content/nextstrain-docs.md)
