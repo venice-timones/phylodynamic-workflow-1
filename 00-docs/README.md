@@ -13,18 +13,18 @@
 
 2. ### Sequence Preparation
 
-- ### [07 - Align sequences]()
-- ### [08 - Remove gaps]()
-- ### [09 - Create Maximum Likelihood Tree]()
-- ### [10 - Plot temporal signal]()
+- #### [07 - Align sequences]()
+- #### [08 - Remove gaps]()
+- #### [09 - Create Maximum Likelihood Tree]()
+- #### [10 - Plot temporal signal]()
 
 3. ### Phylodynamic Analysis using BEAST2
 
-- ### [11 - Compute priors]()
-- ### [12 - Create date file]()
-- ### [13 - Create BEAST2 XML files]()
-- ### [14 - Run in COARE]()
-- ### [15 - Visualize Results]()
+- #### [11 - Compute priors]()
+- #### [12 - Create date file]()
+- #### [13 - Create BEAST2 XML files]()
+- #### [14 - Run in COARE]()
+- #### [15 - Visualize Results]()
 
 ## Nextstrain
 
