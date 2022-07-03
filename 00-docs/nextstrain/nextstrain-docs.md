@@ -5,8 +5,15 @@
 1. Set up the Windows Subsytem for Linux (WSL)
 
    1. Navigate to `control panel` then to `Turn Windows features on or off`.
-   2. Check `Windows Subsytem for Linux` and restart computer.
-   3. Open your `Command Prompt`. Verify installation by running the following command in the command line:
+   2. Check both `Virtual Machine Platform` and `Windows Subsytem for Linux`, then restart computer.
+   3. Download and install the Linux kernel update package given in the link [here](https://docs.microsoft.com/en-us/windows/wsl/install-manual#step-4---download-the-linux-kernel-update-package).
+   4. Set WSL 2 as your default version. Open `Command Prompt` and run the following:
+
+      ```
+      wsl --set-default-version 2
+      ```
+
+   5. Open your `Command Prompt`. Verify installation by running the following command in the command line:
       ```
       bash
       ```
@@ -14,11 +21,11 @@
       ```
       Windows Subsytem for Linux has no installed distributions.
       ```
-   4. Download [`Ubuntu`](https://apps.microsoft.com/store/detail/ubuntu/9PDXGNCFSCZV) from Microsoft Store.
-   5. Open `Ubuntu` and enter `username` and `password`. Do not forget your password.
-   6. Restart `Ubuntu`.
+   6. Download [`Ubuntu`](https://apps.microsoft.com/store/detail/ubuntu/9PDXGNCFSCZV) from Microsoft Store.
+   7. Open `Ubuntu` and wait for installation to complete. Enter `username` and `password`. Do not forget your password.
+   8. Restart `Ubuntu`.
 
-2. Install Miniconda
+2. Open `Ubuntu`. Install Miniconda:
 
    ```bash
    wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
@@ -55,7 +62,7 @@
    nextstrain check-setup --set-default
    ```
 
-   The final output from the last command should look like this, where <option> is the option chosen in the previous step:
+   The final output from the last command should look like this, where <option> is the option chosen in the previous step (in our case, native):
 
    ```
    Setting default environment to <option>.
@@ -69,13 +76,32 @@
    mamba update --all -c conda-forge -c bioconda
    ```
 
-8. Download ncov workflow.
-
-   ```
-   git clone https://github.com/nextstrain/ncov.git
-   ```
-
 ## Nextsrain Installation (macOS)
+
+## 8. Download ncov workflow
+
+1. Create a shortcut for windows in ubuntu. Replace `<username>` with your computer username (not the ubuntu username).
+
+   ```
+   ln -s /mnt/c/Users/<username> win-home
+   ```
+
+2. Go to windows file and chose a folder on which to download the ncov workflow. Here, I'll use the `Downloads` folder.
+   ```
+   cd win-home
+   cd Downloads
+   ```
+3. Download the workflow. Run the following command then enter your `Ubunto` password when prompted.
+
+   ```
+   sudo git clone https://github.com/nextstrain/ncov.git
+   ```
+
+4. After running the commands above, there should now be an `ncov` folder. Go inside this folder.
+
+   ```
+   cd ncov
+   ```
 
 ## Data preparation
 
@@ -113,21 +139,21 @@
 1. Enter dataset inside `ncov/data/ph`. Create the `ph` folder inside `ncov/data/`. Each data should be in `.tar` format, downloaded from GISAID using Augur format pipeline.
 
 2. Setup the build file. Use [sample build yaml file](builds.yaml) as boilerplate. Inside this file, there are five main levels:
-   1. **Inputs**
+   1. **Inputs**  
       Input files are enumerated here. For each input, the `name`, `metadata`, and `sequences` should be defined. Since a `.tar` file was used (which already contains both the metadata and sequences), the content for `metadata` and `sequences` should be the same - which is the directory at which the data was placed.
-   2. **Builds**
-      Builds are the different views of the nextstrain visualization output. In the auspice, each build is reflected in the fourth drop-down under the `Dataset`. [Example here](https://nextstrain.org/community/ijborda/dssphylo/mindanao?p=grid). In the example, there are four builds: asia, global, philippines, and mindanao.
-      In each build, the subsampling scheme and title should be defined. The subsampling scheme is a name that exists under the `subsampling` level. The title is a string that is displayed in the Auspice. Geolocations can also be optionally defined (such as `region` or `country`). They can be used during the subsampling query so that region, country, etc. are not hardcoded.
-   3. **Subsampling**
+   2. **Builds**  
+      Builds are the different views of the nextstrain visualization output. In the auspice, each build is reflected in the fourth drop-down under the `Dataset`. [Example here](https://nextstrain.org/community/ijborda/dssphylo/mindanao?p=grid).  
+      In the example, there are four builds: asia, global, philippines, and mindanao. In each build, the subsampling scheme and title should be defined. The subsampling scheme is a name that exists under the `subsampling` level. The title is a string that is displayed in the Auspice. Geolocations can also be optionally defined (such as `region` or `country`). They can be used during the subsampling query so that region, country, etc. are not hardcoded.
+   3. **Subsampling**  
       Subsampling names defined under the `builds` level should be defined here. Each subsampling scheme can contain multiple levels (which are also a subsampling scheme on their own, and can be names arbitrarily). Resulting sequences from each of these levels are combined to have the final set of sequences to be used in the respective build. Each scheme accepts multiple parameters:
       - `group_by`: groups the sequences according to multiple metadata
       - `seq_per_group`: number of sequences per group (defined by `group_by`) to be selected
       - `query`: used to select sequences that matches the panda-like query.
       - `priorities`: gives priority to certain sequences
-   4. **Files**
-      This level is used to define other configurations. In the [example yaml file](builds.yaml), defined in this level is the description to be used in the auspice visualization. [Sample description file here](my_description.md).
+   4. **Files**  
+      This level is used to define other configurations. In the [example yaml file](builds.yaml), defined in this level is the description to be used in the auspice visualization. [Sample description file here](my_description.md).  
       Defined also in this level is the default views of the auspice. [Sample auspice configuration file here](auspice-config-custom-data.json). This overrides the default Auspice config file, `defaults/auspice_config.json`. This config file made the default geographical view and default coloring to be in `division`. This also modified the maintainers to be AMBDABiDSS-Health with its corresponding link.
-   5. **Traits**
-      Traits defines what metadata to perform ancestral reconstruction to.
-      Note: As of writing, nextstrain can only handle a maximum of 300 unique discrete traits.
+   5. **Traits**  
+      Traits defines what metadata to perform ancestral reconstruction to.  
+      Note: As of writing, nextstrain can only handle a maximum of 300 unique discrete traits.  
       Each level of the trait is the buildname, which needs two parameters: sampling bias correction and target columns for ancestral reconstruction.
