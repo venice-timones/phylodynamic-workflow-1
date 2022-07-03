@@ -110,7 +110,7 @@
 
 ## Nextstrain fixes
 
-1. Fix the longlat of mindanao regions. Update the longlat of BARMM to be 7.326624, 124.160278 by replacing the `lat_longs.tsv` in the ncov folder with [this updated tsv file](lat_longs.tsv).
+1. Fix the longlat of mindanao regions. Update the longlat of BARMM to be 7.326624, 124.160278 by replacing the `lat_longs.tsv` in the `ncov/defaults` folder with [this updated tsv file](lat_longs.tsv).
 
    The longlats should be:
 
@@ -138,7 +138,8 @@
 
 1. Enter dataset inside `ncov/data/ph`. Create the `ph` folder inside `ncov/data/`. Each data should be in `.tar` format, downloaded from GISAID using Augur format pipeline.
 
-2. Setup the build file. Use [sample build yaml file](builds.yaml) as boilerplate. Inside this file, there are five main levels:
+2. Setup the build file. Use [sample build yaml file](builds.yaml) as boilerplate. Save this inside `ncov/my_profiles/ph` folder. Inside this build file, there are five main levels:
+
    1. **Inputs**  
       Input files are enumerated here. For each input, the `name`, `metadata`, and `sequences` should be defined. Since a `.tar` file was used (which already contains both the metadata and sequences), the content for `metadata` and `sequences` should be the same - which is the directory at which the data was placed.
    2. **Builds**  
@@ -151,9 +152,12 @@
       - `query`: used to select sequences that matches the panda-like query.
       - `priorities`: gives priority to certain sequences
    4. **Files**  
-      This level is used to define other configurations. In the [example yaml file](builds.yaml), defined in this level is the description to be used in the auspice visualization. [Sample description file here](my_description.md).  
-      Defined also in this level is the default views of the auspice. [Sample auspice configuration file here](auspice-config-custom-data.json). This overrides the default Auspice config file, `defaults/auspice_config.json`. This config file made the default geographical view and default coloring to be in `division`. This also modified the maintainers to be AMBDABiDSS-Health with its corresponding link.
+      This level is used to define other configurations. These files are also saved inside `ncov/my_profiles/ph`.
+      1. Description - used in the auspice visualization. [Sample description file here](my_description.md).
+      2. Auspice config file - overrides the default Auspice config file, `defaults/auspice_config.json`.Sets the default geographical view and the default coloring to be in `division`. Also modified the maintainers to be AMBDABiDSS-Health with its corresponding link. [Sample auspice configuration file here](auspice-config-custom-data.json).
    5. **Traits**  
       Traits defines what metadata to perform ancestral reconstruction to.  
       Note: As of writing, nextstrain can only handle a maximum of 300 unique discrete traits.  
       Each level of the trait is the buildname, which needs two parameters: sampling bias correction and target columns for ancestral reconstruction.
+
+3. Set up the resources to be used in the run. [Sample config file](config.yaml). This file is saved inside `ncov/my_profiles/ph`.
