@@ -1,22 +1,24 @@
 # Table of Contents
 
-## Preprocessing
+## BEAST 2
 
-- ### [01 - Download data from GISAID]()
-- ### [02 - Fix known metadata issues]()
-- ### [03 - Combine sequences to one set]()
-- ### [04 - Subsample sequences to Mindanao Regions]()
-- ### [05 - Quality check samples]()
-- ### [06 - Generate data descriptives]()
+1. ### Preprocessing
 
-## Sequence Preparation
+- #### [01 - Download data from GISAID]()
+- #### [02 - Fix known metadata issues]()
+- #### [03 - Combine sequences to one set]()
+- #### [04 - Subsample sequences to Mindanao Regions]()
+- #### [05 - Quality check samples]()
+- #### [06 - Generate data descriptives]()
+
+2. ### Sequence Preparation
 
 - ### [07 - Align sequences]()
 - ### [08 - Remove gaps]()
 - ### [09 - Create Maximum Likelihood Tree]()
 - ### [10 - Plot temporal signal]()
 
-## Phylodynamic Analysis using BEAST2
+3. ### Phylodynamic Analysis using BEAST2
 
 - ### [11 - Compute priors]()
 - ### [12 - Create date file]()
@@ -25,3 +27,8 @@
 - ### [15 - Visualize Results]()
 
 ## Nextstrain
+
+1. ### Preprocessing
+
+- #### [01 - Download data from GISAID]()
+- #### [02 - Fix known metadata issues]()
