@@ -28,4 +28,4 @@
 
 ## Nextstrain
 
-- #### [Nextstrain docs](content/nextstrain-docs.md)
+- #### [Nextstrain docs](nextstrain/nextstrain-docs.md)
