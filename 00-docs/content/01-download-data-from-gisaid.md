@@ -40,7 +40,8 @@
 
    ![Global](images/global-01.png)
 
-3. Downloading of the Global sequences will start.
+3. A file with a `.tar` extension will be downloaded.
+
 
 ## Asia Samples
 
@@ -50,10 +51,9 @@
 
    ![Global](images/asia-01.png)
 
-3. Downloading of the Global sequences will start.
+3. A file with a `.tar` extension will be downloaded.
 
 
-## Philippines samples
 ## Philippines samples
 
 1. Click **Search** on the EpiCov panel and you will be redirected to this page shown below
