@@ -8,7 +8,6 @@
 * [Mindanao samples](mindanao-samples)
 
 ## Accessing GSAID
-> "The GISAID Initiative involves public-private partnerships, among them the partnership with the Federal Republic of Germany, and governmental public-health and academic institutions in Argentina, Brazil, China, Republic of the Congo, Ethiopia, Indonesia, Malaysia, Russia, Senegal, Singapore, South Africa, and the support by Friends of GISAID, a registered non-profit association and administrative arm of the Initiative." - GISAID.org 
 1. Open [GSAID](https://www.gisaid.org/) and login
 	* awhdaw
 2. 
