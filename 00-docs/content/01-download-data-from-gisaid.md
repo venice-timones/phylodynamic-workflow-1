@@ -81,17 +81,19 @@
    _NOTE: To select all, simply click the checkbox next to the **Virus name**._
 
 6. Click **Download** on the pop-up.
+
    ![Download Min](images/gisaid-ph-05.png)
    
    _NOTE: Use input for augur pipeline._
+   
+7. A file with a `.tar` extension will be downloaded.
 
-
-7. Repeat **steps 3-6** but enter the date from the upper limit to the lower limit and enter another upper limit date.
+8. Repeat **steps 3-6** but enter the date from the upper limit to the lower limit and enter another upper limit date.
    
    Example:
    ![Repeat steps PH](images/gisaid-ph-06.png)
    
-7. Ensure all Philippines samples are downloaded.
+9. Ensure all Philippines samples are downloaded.
 
 ## Mindanao samples
 
@@ -124,20 +126,25 @@ _NOTE: There are naming inconsistencies and samples from the same region could h
 
 1. Click **Search** on the **EpiCoV<sup>TM</sup>** panel. 
 
-    ![Gisaid after logging in](images/gisaid-03.png)
+    ![Click search](images/gisaid-03.png)
 
 2. You will be redirected to this page. Type "**Asia / Philippines / [insert region]**" on the text box.
 
    Example:
-   ![Enter Location on textbox](images/gisaid-ph-02.png)
+   ![Enter region on textbox](images/gisaid-ph-02.png)
    
    _NOTE: Refer to the [sample list](#list-of-mindanao-samples) of region names above._
    
 3. Select all samples and **Download** on the bottom left of the screen.
 
-   ![Download PH](images/gisaid-min-02.png)
+   ![Download Min](images/gisaid-min-02.png)
    
 4. Click **Download** on the pop-up.
+
    ![Download Min](images/gisaid-ph-05.png)
    
    _NOTE: Use input for augur pipeline._
+
+5. A file with a `.tar` extension will be downloaded.
+
+6. Repeat **steps 2-4** until all sets from the [sample list](#list-of-mindanao-samples) are downloaded.
