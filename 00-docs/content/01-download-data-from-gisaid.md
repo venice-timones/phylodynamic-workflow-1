@@ -56,11 +56,11 @@
 
 ## Philippines samples
 
-1. Click **Search** on the EpiCov panel and you will be redirected to this page shown below
+1. Click **Search** on the **EpiCov panel** 
 
-    ![Gisaid after logging in](images/gisaid-ph-01.png)
+    ![Gisaid after logging in](images/gisaid-03.png)
 
-2. Type "**Asia / Philippines**" on the text box as shown below:
+2. You will be redirected to this page. Type "**Asia / Philippines**" on the text box as shown below:
 
    ![Enter Location on textbox](images/gisaid-ph-02.png)
 
@@ -72,7 +72,7 @@
 
    _NOTE: Don't forget to select all by clicking the checkbox next to the **Virus name**._
 
-4. Check the number of **viruses:** on the bottomleft of the screen. Make sure it is less than 5000, if not, adjust the date as needed.
+4. Check the number of **Total viruses** on the bottomleft of the screen. Make sure it is less than 5000, if not, adjust the date as needed.
 
    ![Virus number](images/gisaid-ph-04.png)
 
@@ -82,9 +82,10 @@
    
    _NOTE: Use input for augur pipeline before clicking download again._
 
-6. Repeat  **steps 2-4** but enter the recent date from the **To:** textbox to the **Collection:** textbox to ensure all samples are covered. Example:
+6. Repeat **steps 3-5** but enter the recent date from the **To:** textbox to the **Collection:** textbox. Example:
 
    ![Repeat steps PH](images/gisaid-ph-06.png)
    
+7. Ensure all Philippines samples are downloaded.
 
 ## Mindanao samples
