@@ -131,7 +131,7 @@ _NOTE: There are naming inconsistencies and samples from the same region could h
 2. You will be redirected to this page. Type "**Asia / Philippines / [insert region]**" on the text box.
 
    Example:
-   ![Enter region on textbox](images/gisaid-ph-02.png)
+   ![Enter region on textbox](images/gisaid-min-01.png)
    
    _NOTE: Refer to the [sample list](#list-of-mindanao-samples) of region names above._
    
