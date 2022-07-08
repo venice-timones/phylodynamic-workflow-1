@@ -6,7 +6,7 @@
 * [Global samples](#global-samples)
 * [Asia samples](#asia-samples)
 * [Philippines samples](#philippines-samples)
-* [Mindanao samples](mindanao-samples)
+* [Mindanao samples](#mindanao-samples)
 
 
 ## Accessing GSAID
@@ -89,3 +89,27 @@
 7. Ensure all Philippines samples are downloaded.
 
 ## Mindanao samples
+
+### List of samples to download per region:
+
+* `Set A:`
+    * Autonomous Region In Muslim Mindanao
+    * Autonomous Region In Muslim Mindanao(ARMM)
+    * Bangsamoro Autonomous Region in Muslim Mindanao
+
+* `Set B:`
+    * Davao
+    * Davao Region
+    * Region XI (Davao Region)
+
+* Northern Mindanao:
+    * Region X (Northern Mindanao)
+    * 
+* Soccsksargen:
+    * Region XII (Soccsksargen)
+
+* Zamboanga Peninsula:
+    * Region IX
+    * Zamboanga
+    
+    _NOTE: There are some inconsistencies in sample naming which means samples from the same region could be labeled differentrly. It is important to download all necessary samples._
