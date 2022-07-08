@@ -7,6 +7,7 @@
 * [Asia samples](#asia-samples)
 * [Philippines samples](#philippines-samples)
 * [Mindanao samples](#mindanao-samples)
+   * [List of Mindanao Samples](#list-of-mindanao-samples)
 
 
 ## Accessing GSAID
@@ -94,6 +95,7 @@
    ![Repeat steps PH](images/gisaid-ph-06.png)
    
 9. Ensure all Philippines samples are downloaded.
+
 
 ## Mindanao samples
 
