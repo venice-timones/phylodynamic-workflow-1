@@ -4,7 +4,7 @@
 
 - [Overview](#overview)
 - [Input](#input)
-- [Script](#scripts)
+- [Scripts](#scripts)
 - [Output](#output)
 
 ## Overview
