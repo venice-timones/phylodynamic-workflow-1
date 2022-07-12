@@ -10,7 +10,7 @@
 
 ## Overview
 
-- After successfully fixing the metada errors, the goal of this method is to combine all the **sequences** and **metadata files** of the Regions into **one Mindanao file**.
+- After successfully fixing the metadata errors, the goal of this method is to combine all the **sequences** and **metadata files** of the Regions into **one Mindanao file**.
 - This is to easily group different Regions by concatenating all the data first, and then subsampling them into individual Mindanao Regions later on.
 
 ## Inputs
