@@ -34,10 +34,10 @@
 
 ### Steps on running the script:
 
-1. For MacOS users, execute the `.command` file.
-2. For Windows users, execute the `.bat` file.
+1. For **MacOS** users, execute the `.command` file.
+2. For **Windows** users, execute the `.bat` file.
 3. Do this by simply double clicking on the desired file.
-4. A command prompt will pop-up, then wait until the script is completely executed.
+4. A **command prompt** will pop-up, then wait until the script is completely executed.
 
 ## Output
 
