@@ -54,7 +54,7 @@
   - `combineSequences.fasta`
   - `combineSequences.tsv`
 
-## Duplicate Headers
+## Duplicated Headers
 
 - When checking out the contents of the expected outputs, multiple **Headers** may be found such as the images below. For example, the header can be found on the **1st** line and the **4849th** line of the `combineSequences.tsv` file.
 
