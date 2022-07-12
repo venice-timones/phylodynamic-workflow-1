@@ -6,7 +6,7 @@
 - [Input](#input)
 - [Scripts](#scripts)
 - [Output](#output)
-- [Duplicate Headers](#duplicate-headers)
+- [Duplicated Headers](#duplicated-headers)
 
 ## Overview
 
@@ -19,14 +19,14 @@
 
 - We first decompress the `.tar` files. We can find a `.fasta` and a `.tsv` file inside. Repeat for all the `.tar` files.
 
-- Gather all the sequence and metadata files from each `.tar` files. Place them inside the **input** folder of the **02-combineSequences** folder
+- Gather all the sequences and metadata files from each `.tar` files. Place them inside the **input** folder of the **02-combineSequences** folder
 
   ### Expected files to input:
 
   - `*.fasta`
   - `*.tsv`
 
-  _Note: The \* represents any file name. The number of sequence and metadata files depends on the number of `.tar` files._
+  _Note: The \* represents any file name. The number of sequences and metadata files depends on the number of `.tar` files._
 
 ## Scripts
 
@@ -41,9 +41,9 @@
 
 - To run the bash script:
   - Double click the file.
-  - For MacOS users, execute the `.command` file
-  - For Windows users, execute the `.bat` file
-  - A command prompt will pop-up, then wait until the script is completely executed.
+  - For **MacOS** users, execute the `.command` file
+  - For **Windows** users, execute the `.bat` file
+  - A **command prompt** will pop-up, then wait until the script is completely executed.
 
 ## Output
 
