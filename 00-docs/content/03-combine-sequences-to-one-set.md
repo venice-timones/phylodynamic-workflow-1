@@ -16,17 +16,13 @@
 ## Input
 
 - The resulting files with the extension `.tar` inside the **output** folder of the **01-fixMetadata** folder will be used as the input here.
-
 - We first decompress the `.tar` files. We can find a `.fasta` and a `.tsv` file inside. Repeat for all the `.tar` files.
-
 - Gather all the sequences and metadata files from each `.tar` files. Place them inside the **input** folder of the **02-combineSequences** folder
-
+  <br></br>
   ### Expected files to input:
-
   - `*.fasta`
-  - `*.tsv`
-
-  _Note: The \* represents any file name. The number of sequences and metadata files depends on the number of `.tar` files._
+  - `*.tsv`  
+    _Note: The \* represents any file name. The number of sequences and metadata files depends on the number of `.tar` files._
 
 ## Scripts
 
@@ -34,12 +30,12 @@
 
   - The bash script combines all sequences into one `.fasta` file.
   - It also combine all metadata file into one `.tsv` file.
-
   - Here is a review of the bash script.
-
+    <br></br>
     ![Review of bashscript](/00-docs/content/images/combineSeq-01.png)
 
 - To run the bash script:
+
   - Double click the file.
   - For **MacOS** users, execute the `.command` file
   - For **Windows** users, execute the `.bat` file
