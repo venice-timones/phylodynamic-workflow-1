@@ -18,7 +18,6 @@
 - The resulting files with the extension `.tar` inside the **output** folder of the **01-fixMetadata** folder will be used as the input here.
 - We first decompress the `.tar` files. We can find a `.fasta` and a `.tsv` file inside. Repeat for all the `.tar` files.
 - Gather all the sequences and metadata files from each `.tar` files. Place them inside the **input** folder of the **02-combineSequences** folder
-  <br></br>
   ### Expected files to input:
   - `*.fasta`
   - `*.tsv`  
