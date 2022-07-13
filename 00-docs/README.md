@@ -13,7 +13,7 @@
 
 2. ### Sequence Preparation
 
-- #### [07 - Align sequences]()
+- #### [07 - Align sequences](content/07-align-sequences.md)
 - #### [08 - Remove gaps]()
 - #### [09 - Create Maximum Likelihood Tree]()
 - #### [10 - Plot temporal signal]()
