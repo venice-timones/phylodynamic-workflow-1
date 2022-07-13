@@ -14,9 +14,10 @@
 2. ### Sequence Preparation
 
 - #### [07 - Align sequences](content/07-align-sequences.md)
-- #### [08 - Remove gaps]()
-- #### [09 - Create Maximum Likelihood Tree]()
-- #### [10 - Plot temporal signal]()
+- #### [08 - Remove gaps](content/08-remove-gaps.md)
+- #### [09 - Create date file](content/09-create-date-file.md)
+- #### [10 - Create Maximum Likelihood Tree](content/10-create-maximum-likelihood-tree.md)
+- #### [11 - Plot temporal signal](content/11-plot-temporal-signal.md)
 
 3. ### Phylodynamic Analysis using BEAST2
 
