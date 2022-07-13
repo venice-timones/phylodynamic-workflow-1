@@ -26,7 +26,8 @@
 - The resulting files with the extension `.fasta` inside the **output** folder of the **04-qualityCheckSequences** folder will be used as the input here.
 - Put one `.fasta` file at a time inside the **input** folder of the **06-alignSequences** folder.
   ### Expected file to input
-  - `*.fasta`  
+  - `*.fasta`
+  
     _Note: The \* represents any file name._
 
 ## Scripts
@@ -49,7 +50,7 @@
 
 ## Output
 
-- A file should now be found on the **output** folder of the `06-alignSequences` folder.
+- A file `align.fasta` should now be found on the **output** folder of the `06-alignSequences` folder.
 - Rename the output file with the corresponding input file name (e.g. **barmm-align.fasta**)
 - Repeat these steps for the remaining input files. There should be a total of 6 outputs by the end of this process.
   ### Expected Outputs
