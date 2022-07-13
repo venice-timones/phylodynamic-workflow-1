@@ -21,7 +21,7 @@
 - Put **one** `.fasta` file **at a time** inside the **input** folder of the **14-removeGaps** folder.
   ### Expected files to input:
   _These files are placed one at a time._
-  
+  <br></br>
   - `barmm-align.fasta`
   - `caraga-align.fasta`
   - `davao-align.fasta`
